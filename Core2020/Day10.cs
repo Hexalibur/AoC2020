@@ -40,15 +40,13 @@ namespace Core2020
             return differences[1] *(differences[3]+1);
         }
 
-        public long GetNumberOfWays(int[] list, int startValue = 0)
+        public long GetNumberOfWays(int[] list)
         {
             var values = new Dictionary<int, long>();
-
-            var subList = list.OrderByDescending(x => x).ToList();
-            foreach (var value in subList)
+            foreach (var value in list.OrderByDescending(x => x))
             {
                 values.Add(value, value == list.Max() ? 1 : 0);
-                foreach (var subValue in subList.Where(x => x > value && x <= value + 3))
+                foreach (var subValue in list.Where(x => x > value && x <= value + 3))
                 {
                     values[value] += values[subValue];
                 }
