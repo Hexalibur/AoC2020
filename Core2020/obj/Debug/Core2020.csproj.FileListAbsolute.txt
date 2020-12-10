@@ -1,0 +1,6 @@
+C:\Users\lmddvx\source\repos\AdventOfCode\Core2020\bin\Debug\Core2020.dll
+C:\Users\lmddvx\source\repos\AdventOfCode\Core2020\bin\Debug\Core2020.pdb
+C:\Users\lmddvx\source\repos\AdventOfCode\Core2020\obj\Debug\Core2020.csprojAssemblyReference.cache
+C:\Users\lmddvx\source\repos\AdventOfCode\Core2020\obj\Debug\Core2020.csproj.CoreCompileInputs.cache
+C:\Users\lmddvx\source\repos\AdventOfCode\Core2020\obj\Debug\Core2020.dll
+C:\Users\lmddvx\source\repos\AdventOfCode\Core2020\obj\Debug\Core2020.pdb
