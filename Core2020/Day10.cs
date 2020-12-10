@@ -42,10 +42,10 @@ namespace Core2020
 
         public long GetNumberOfWays(int[] list)
         {
-            var values = new Dictionary<int, long>();
+            var values = InitializeValues(list);
+
             foreach (var value in list.OrderByDescending(x => x))
             {
-                values.Add(value, value == list.Max() ? 1 : 0);
                 foreach (var subValue in list.Where(x => x > value && x <= value + 3))
                 {
                     values[value] += values[subValue];
@@ -53,6 +53,19 @@ namespace Core2020
             }
 
             return values.Where(x => x.Key <= 3 ).Sum(x => x.Value);
+        }
+
+        public Dictionary<int, long> InitializeValues(int[] list)
+        {
+            var newList = new Dictionary<int, long>();
+            foreach (var i in list.OrderByDescending(x => x))
+            {
+                newList.Add(i, 0);
+            }
+
+            newList[list.Max()] = 1;
+
+            return newList;
         }
     }
 }
