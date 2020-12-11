@@ -5,6 +5,8 @@ namespace AdventOfCode.Days
 {
     public class Day10Executor : DailyExecuter
     {
+        private bool IsSkip = false;
+
         public Day10Executor(string input) : base(input)
         {
         }
@@ -15,6 +17,12 @@ namespace AdventOfCode.Days
 
         public override object Step1()
         {
+            if (IsSkip)
+            {
+                Console.WriteLine($"Day10.1 : Skip");
+                return 0;
+            }
+            
             var instance = new Core2020.Day10();
             var data = instance.PrepareData(CurrentInput);
 
@@ -25,6 +33,11 @@ namespace AdventOfCode.Days
 
         public override object Step2()
         {
+            if (IsSkip)
+            {
+                Console.WriteLine($"Day10.2 : Skip");
+                return 0;
+            }
             var instance = new Core2020.Day10();
             var data = instance.PrepareData(CurrentInput);
             
