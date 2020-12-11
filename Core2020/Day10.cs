@@ -40,7 +40,7 @@ namespace Core2020
             return differences[1] *(differences[3]+1);
         }
 
-        public long GetNumberOfWays(int[] list)
+        public long GetNumberOfWays(IEnumerable<int> list)
         {
             var orderedList = list.OrderByDescending(x => x).ToList();
 
