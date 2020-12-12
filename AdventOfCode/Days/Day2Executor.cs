@@ -23,6 +23,7 @@ namespace AdventOfCode.Days
 
             var result = instance.ValidatePasswords(list, typeof(Rule2));
             Console.WriteLine($"Day2.2 : {result}");
+            Console.WriteLine();
             return result;
         }
         public Day2Executor(string input) : base(input) {}

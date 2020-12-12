@@ -22,6 +22,7 @@ namespace AdventOfCode.Days
             var result = instance.FindFinalThreeNumbers(list);
             
             Console.WriteLine($"Day1.2 : {result}");
+            Console.WriteLine();
             return result;
         }
 

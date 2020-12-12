@@ -33,6 +33,7 @@ namespace AdventOfCode.Days
 
             var result = instance.CountTreesByPattern(list, patterns);
             Console.WriteLine($"Day3.2 : {result}");
+            Console.WriteLine();
             return result;
         }
         public Day3Executor(string input) : base(input) {}

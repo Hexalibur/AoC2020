@@ -11,21 +11,27 @@ namespace AdventOfCode.Days
         public override object Step1()
         {
             var instance = new Core2020.Day9();
+            
+            Console.WriteLine($"Day9.1 start : {DateTime.Now.ToLongTimeString()}");
             var data = instance.PrepareData(CurrentInput);
 
             var result = instance.FindFirstInvalidNumber(data, 25);
             Console.WriteLine($"Day9.1 : {result}");
+            Console.WriteLine($"Day9.1 end : {DateTime.Now.ToLongTimeString()}");
             return result;
         }
 
         public override object Step2()
         {
             var instance = new Core2020.Day9();
+            Console.WriteLine($"Day9.2 start : {DateTime.Now.ToLongTimeString()}");
             var data = instance.PrepareData(CurrentInput);
             
             var firstStepResult = instance.FindFirstInvalidNumber(data, 25);
             var result = instance.FindSumOfLowestAndHighestValuesFromAContinuousSum(data, firstStepResult);
             Console.WriteLine($"Day9.2 : {result}");
+            Console.WriteLine($"Day9.2 end : {DateTime.Now.ToLongTimeString()}");
+            Console.WriteLine();
             return result;
         }
     }

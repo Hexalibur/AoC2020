@@ -22,6 +22,7 @@ namespace AdventOfCode.Days
 
             var result = instance.ValidatePassports(data, false);
             Console.WriteLine($"Day4.2 : {result}");
+            Console.WriteLine();
             return result;
         }
         public Day4Executor(string input) : base(input) {}
