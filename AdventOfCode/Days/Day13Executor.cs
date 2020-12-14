@@ -35,6 +35,7 @@ namespace AdventOfCode.Days
             var result = instance.GetEarliestMatchedSequence(data);
             Console.WriteLine($"Day13.2 : {result}");
             Console.WriteLine($"Day13.2 end : {DateTime.Now.ToLongTimeString()}");
+            Console.WriteLine();
             return result;
         }
     }

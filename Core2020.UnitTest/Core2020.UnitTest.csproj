@@ -58,6 +58,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Day14Tests.cs" />
     <Compile Include="Day1Tests.cs" />
     <Compile Include="Day6Tests.cs" />
     <Compile Include="Day9Tests.cs" />
