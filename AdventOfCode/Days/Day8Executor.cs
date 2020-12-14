@@ -1,4 +1,4 @@
-﻿using AdventOfCode.Days.Interface;
+﻿using AdventOfCode.Days.Base;
 using System;
 using System.Linq;
 

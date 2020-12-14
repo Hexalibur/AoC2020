@@ -1,4 +1,4 @@
-﻿namespace AdventOfCode.Days.Interface
+﻿namespace AdventOfCode.Days.Base
 {
     public abstract class DailyExecuter
     {

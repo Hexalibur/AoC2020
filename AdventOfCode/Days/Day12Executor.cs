@@ -1,4 +1,4 @@
-﻿using AdventOfCode.Days.Interface;
+﻿using AdventOfCode.Days.Base;
 using System;
 
 namespace AdventOfCode.Days
@@ -34,6 +34,7 @@ namespace AdventOfCode.Days
             var result = instance.ComputeManhattanDistanceWayPoint(data);
             Console.WriteLine($"Day12.2 : {result}");
             Console.WriteLine($"Day12.2 end : {DateTime.Now.ToLongTimeString()}");
+            Console.WriteLine();
             return result;
         }
     }
