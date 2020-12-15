@@ -9313,6 +9313,8 @@ mask = 00110000011X1111100X000X00XXX1XX1000
 mem[17938] = 33020705
 mem[2666] = 88651117
 mem[21482] = 161753";
+
+        public static readonly string d15_list = @"0,13,1,16,6,17";
     }
 }
 
