@@ -35,6 +35,7 @@ namespace AdventOfCode.Days
             var result = instance.GetSpokenNumber(data, 30000000);
             Console.WriteLine($"Day15.2 : {result}");
             Console.WriteLine($"Day15.2 end : {DateTime.Now.ToLongTimeString()}");
+            Console.WriteLine();
             return result;
         }
     }
