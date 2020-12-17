@@ -51,6 +51,7 @@
     <Compile Include="Days\Day14Executor.cs" />
     <Compile Include="Days\Day15Executor.cs" />
     <Compile Include="Days\Day16Executor.cs" />
+    <Compile Include="Days\Day17Executor.cs" />
     <Compile Include="Days\Day2Executor.cs" />
     <Compile Include="Days\Day1Executor.cs" />
     <Compile Include="Days\Day3Executor.cs" />

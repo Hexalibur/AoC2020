@@ -1,41 +1,36 @@
 ﻿using AdventOfCode.Days.Base;
-using System;
 
 namespace AdventOfCode.Days
 {
     public class Day12Executor : DailyExecuter
     {
-        public Day12Executor(string input) : base(input)
+        public Day12Executor(string input) : base(input, "Day12")
         {
         }
 
-        public Day12Executor() : base(DailyInputs.d12_list)
+        public Day12Executor() : base(DailyInputs.d12_list, "Day12")
         {
         }
+
+        public override bool IsSkip1 => false;
+        public override bool IsSkip2 => false;
 
         public override object Step1()
         {
             var instance = new Core2020.Day12();
-            Console.WriteLine($"Day12.1 start : {DateTime.Now.ToLongTimeString()}");
+
             var data = instance.PrepareData(CurrentInput);
 
-            var result = instance.ComputeManhattanDistance(data);
-            Console.WriteLine($"Day12.1 : {result}");
-            Console.WriteLine($"Day12.1 end : {DateTime.Now.ToLongTimeString()}");
-            return result;
+            return instance.ComputeManhattanDistance(data);
         }
 
         public override object Step2()
         {
             var instance = new Core2020.Day12();
-            Console.WriteLine($"Day12.2 start : {DateTime.Now.ToLongTimeString()}");
+
             var data = instance.PrepareData(CurrentInput);
 
-            var result = instance.ComputeManhattanDistanceWayPoint(data);
-            Console.WriteLine($"Day12.2 : {result}");
-            Console.WriteLine($"Day12.2 end : {DateTime.Now.ToLongTimeString()}");
-            Console.WriteLine();
-            return result;
+            return instance.ComputeManhattanDistanceWayPoint(data);
         }
     }
 }

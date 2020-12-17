@@ -1,6 +1,5 @@
 ﻿using AdventOfCode.Days.Base;
 using Core2020;
-using System;
 
 namespace AdventOfCode.Days
 {
@@ -9,24 +8,24 @@ namespace AdventOfCode.Days
         public override object Step1()
         {
             var instance = new Core2020.Day2();
+
             var list = instance.PrepareData(CurrentInput);
 
-            var result = instance.ValidatePasswords(list, typeof(Rule1));
-            Console.WriteLine($"Day2.1 : {result}");
-            return result;
+            return instance.ValidatePasswords(list, typeof(Rule1));
         }
 
         public override object Step2()
         {
             var instance = new Core2020.Day2();
+
             var list = instance.PrepareData(CurrentInput);
 
-            var result = instance.ValidatePasswords(list, typeof(Rule2));
-            Console.WriteLine($"Day2.2 : {result}");
-            Console.WriteLine();
-            return result;
+            return instance.ValidatePasswords(list, typeof(Rule2));
         }
-        public Day2Executor(string input) : base(input) {}
-        public Day2Executor() : base(DailyInputs.d2_list) {}
+        public Day2Executor(string input) : base(input, "Day2") {}
+        public Day2Executor() : base(DailyInputs.d2_list, "Day2") {}
+
+        public override bool IsSkip1 => false;
+        public override bool IsSkip2 => false;
     }
 }

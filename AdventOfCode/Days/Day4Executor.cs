@@ -1,5 +1,4 @@
 ﻿using AdventOfCode.Days.Base;
-using System;
 
 namespace AdventOfCode.Days
 {
@@ -10,9 +9,7 @@ namespace AdventOfCode.Days
             var instance = new Core2020.Day4();
             var data = instance.PrepareData(CurrentInput);
 
-            var result = instance.ValidatePassports(data, true);
-            Console.WriteLine($"Day4.1 : {result}");
-            return result;
+            return instance.ValidatePassports(data, true);
         }
 
         public override object Step2()
@@ -20,12 +17,12 @@ namespace AdventOfCode.Days
             var instance = new Core2020.Day4();
             var data = instance.PrepareData(CurrentInput);
 
-            var result = instance.ValidatePassports(data, false);
-            Console.WriteLine($"Day4.2 : {result}");
-            Console.WriteLine();
-            return result;
+            return instance.ValidatePassports(data, false);
         }
-        public Day4Executor(string input) : base(input) {}
-        public Day4Executor() : base(DailyInputs.d4_list) {}
+        public Day4Executor(string input) : base(input, "Day4") {}
+        public Day4Executor() : base(DailyInputs.d4_list, "Day4") {}
+
+        public override bool IsSkip1 => false;
+        public override bool IsSkip2 => false;
     }
 }

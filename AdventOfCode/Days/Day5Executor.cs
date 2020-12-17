@@ -1,6 +1,5 @@
 ﻿using AdventOfCode.Days.Base;
 using Core2020;
-using System;
 
 namespace AdventOfCode.Days
 {
@@ -9,7 +8,7 @@ namespace AdventOfCode.Days
         public override object Step1()
         {
             var instance = new Core2020.Day5();
-            Console.WriteLine($"Day5.1 start : {DateTime.Now.ToLongTimeString()}");
+
             var plane = new Day5.Plane()
             {
                 Cols = 8,
@@ -18,16 +17,13 @@ namespace AdventOfCode.Days
             var data = instance.PrepareData(CurrentInput);
             
 
-            var result = instance.FindHighestSeatId(data, plane);
-            Console.WriteLine($"Day5.1 : {result}");
-            Console.WriteLine($"Day5.1 end : {DateTime.Now.ToLongTimeString()}");
-            return result;
+            return instance.FindHighestSeatId(data, plane);
         }
 
         public override object Step2()
         {
             var instance = new Core2020.Day5();
-            Console.WriteLine($"Day5.2 start : {DateTime.Now.ToLongTimeString()}");
+
             var plane = new Day5.Plane()
             {
                 Cols = 8,
@@ -35,13 +31,12 @@ namespace AdventOfCode.Days
             };
             var data = instance.PrepareData(CurrentInput);
 
-            var result = instance.FindSingleEmptySeatId(data, plane);
-            Console.WriteLine($"Day5.2 : {result}");
-            Console.WriteLine($"Day5.2 end : {DateTime.Now.ToLongTimeString()}");
-            Console.WriteLine();
-            return result;
+            return instance.FindSingleEmptySeatId(data, plane);
         }
-        public Day5Executor(string input) : base(input) {}
-        public Day5Executor() : base(DailyInputs.d5_list) {}
+        public Day5Executor(string input) : base(input, "Day5") {}
+        public Day5Executor() : base(DailyInputs.d5_list, "Day5") {}
+
+        public override bool IsSkip1 => false;
+        public override bool IsSkip2 => false;
     }
 }

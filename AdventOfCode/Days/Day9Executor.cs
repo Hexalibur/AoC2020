@@ -1,38 +1,31 @@
 ﻿using AdventOfCode.Days.Base;
-using System;
 
 namespace AdventOfCode.Days
 {
     public class Day9Executor : DailyExecuter
     {
-        public Day9Executor(string input) : base(input) {}
-        public Day9Executor() : base(DailyInputs.d9_list) {}
+        public Day9Executor(string input) : base(input, "Day9") {}
+        public Day9Executor() : base(DailyInputs.d9_list, "Day9") {}
+
+        public override bool IsSkip1 => false;
+        public override bool IsSkip2 => false;
 
         public override object Step1()
         {
             var instance = new Core2020.Day9();
-            
-            Console.WriteLine($"Day9.1 start : {DateTime.Now.ToLongTimeString()}");
+
             var data = instance.PrepareData(CurrentInput);
 
-            var result = instance.FindFirstInvalidNumber(data, 25);
-            Console.WriteLine($"Day9.1 : {result}");
-            Console.WriteLine($"Day9.1 end : {DateTime.Now.ToLongTimeString()}");
-            return result;
+            return instance.FindFirstInvalidNumber(data, 25);
         }
 
         public override object Step2()
         {
             var instance = new Core2020.Day9();
-            Console.WriteLine($"Day9.2 start : {DateTime.Now.ToLongTimeString()}");
             var data = instance.PrepareData(CurrentInput);
             
             var firstStepResult = instance.FindFirstInvalidNumber(data, 25);
-            var result = instance.FindSumOfLowestAndHighestValuesFromAContinuousSum(data, firstStepResult);
-            Console.WriteLine($"Day9.2 : {result}");
-            Console.WriteLine($"Day9.2 end : {DateTime.Now.ToLongTimeString()}");
-            Console.WriteLine();
-            return result;
+            return instance.FindSumOfLowestAndHighestValuesFromAContinuousSum(data, firstStepResult);
         }
     }
 }

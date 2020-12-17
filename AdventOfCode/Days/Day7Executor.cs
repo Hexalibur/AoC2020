@@ -1,5 +1,4 @@
 ﻿using AdventOfCode.Days.Base;
-using System;
 
 namespace AdventOfCode.Days
 {
@@ -8,28 +7,24 @@ namespace AdventOfCode.Days
         public override object Step1()
         {
             var instance = new Core2020.Day7();
-            Console.WriteLine($"Day7.1 start : {DateTime.Now.ToLongTimeString()}");
+
             var data = instance.PrepareData(CurrentInput);
 
-            var result = instance.FindNbOfBagColorContainingAtLeastOneSpecifiedBagColor(data, "shiny gold");
-            Console.WriteLine($"Day7.1 : {result}");
-            Console.WriteLine($"Day7.1 end : {DateTime.Now.ToLongTimeString()}");
-            return result;
+            return instance.FindNbOfBagColorContainingAtLeastOneSpecifiedBagColor(data, "shiny gold");
         }
 
         public override object Step2()
         {
             var instance = new Core2020.Day7();
-            Console.WriteLine($"Day7.2 start : {DateTime.Now.ToLongTimeString()}");
+
             var data = instance.PrepareData(CurrentInput);
 
-            var result = instance.FindNbOfBagColorContainedInOneSpecifiedBagColor(data, "shiny gold");
-            Console.WriteLine($"Day7.2 : {result}");
-            Console.WriteLine($"Day7.2 end : {DateTime.Now.ToLongTimeString()}");
-            Console.WriteLine();
-            return result;
+            return instance.FindNbOfBagColorContainedInOneSpecifiedBagColor(data, "shiny gold");
         }
-        public Day7Executor(string input) : base(input) {}
-        public Day7Executor() : base(DailyInputs.d7_list) {}
+        public Day7Executor(string input) : base(input, "Day7") {}
+        public Day7Executor() : base(DailyInputs.d7_list, "Day7") {}
+
+        public override bool IsSkip1 => false;
+        public override bool IsSkip2 => false;
     }
 }

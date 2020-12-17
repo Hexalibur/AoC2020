@@ -1,5 +1,4 @@
 ﻿using AdventOfCode.Days.Base;
-using System;
 
 namespace AdventOfCode.Days
 {
@@ -12,9 +11,7 @@ namespace AdventOfCode.Days
 
             var patterns = new[] { new int[] {3,1},};
 
-            var result = instance.CountTreesByPattern(list, patterns);
-            Console.WriteLine($"Day3.1 : {result}");
-            return result;
+            return instance.CountTreesByPattern(list, patterns);
         }
 
         public override object Step2()
@@ -31,12 +28,12 @@ namespace AdventOfCode.Days
                 new int[] {1,2}
             };
 
-            var result = instance.CountTreesByPattern(list, patterns);
-            Console.WriteLine($"Day3.2 : {result}");
-            Console.WriteLine();
-            return result;
+            return instance.CountTreesByPattern(list, patterns);
         }
-        public Day3Executor(string input) : base(input) {}
-        public Day3Executor() : base(DailyInputs.d3_list) {}
+        public Day3Executor(string input) : base(input, "Day3") {}
+        public Day3Executor() : base(DailyInputs.d3_list, "Day3") {}
+
+        public override bool IsSkip1 => false;
+        public override bool IsSkip2 => false;
     }
 }

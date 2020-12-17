@@ -36,10 +36,6 @@ namespace Core2020
             {
                 return Values.Where(v => rules.All(r => !r.IsValid(v))).ToArray();
             }
-            public long[] GetValidValues(TicketFieldRule[] rules)
-            {
-                return Values.Where(v => rules.Any(r => r.IsValid(v))).ToArray();
-            }
 
             public bool IsValid(TicketFieldRule[] rules)
             {
@@ -67,8 +63,6 @@ namespace Core2020
                 Tickets = CreateTickets(list[2]),
             };
         }
-
-
 
         private Ticket[] CreateTickets(string input)
         {
@@ -144,12 +138,9 @@ namespace Core2020
             var ruleOrder = FindRuleOrder(data);
 
             long result = 1;
-            foreach(var rule in ruleOrder.OrderBy(r => r.Key))
+            foreach(var rule in ruleOrder.Where(x => x.Value.RuleName.StartsWith("departure")))
             {
-                if (rule.Value.RuleName.StartsWith("departure"))
-                {
-                    result *= data.YourTicket.Values[rule.Key];
-                }
+                result *= data.YourTicket.Values[rule.Key];
             }
 
             return result;
@@ -157,7 +148,7 @@ namespace Core2020
 
         public Dictionary<int, TicketFieldRule> FindRuleOrder(PuzzleData data)
         {
-            var validTickets = data.Tickets.Where(t => t.IsValid(data.Rules)).ToArray();
+            var validTickets = GetValidTickets(data);
 
             var ruleOrder = new Dictionary<int, TicketFieldRule>();
 
@@ -165,17 +156,26 @@ namespace Core2020
             {
                 for (var i = 0; i < data.YourTicket.Values.Length; i++)
                 {
-                    var values = validTickets.Select(x => x.Values[i]);
-                    var rules = data.Rules.Where(r => !ruleOrder.ContainsValue(r)).Where(r => values.All(v => r.IsValid(v))).ToList();
-
-                    if (rules.Count() == 1)
+                    if (!ruleOrder.ContainsKey(i))
                     {
-                        ruleOrder.Add(i, rules.Single());
+                        var values = validTickets.Select(x => x.Values[i]);
+                        var rulesNotDefined = data.Rules.Where(r => !ruleOrder.ContainsValue(r));
+                        var possibleRules = rulesNotDefined.Where(r => values.All(r.IsValid)).ToList();
+
+                        if (possibleRules.Count() == 1)
+                        {
+                            ruleOrder.Add(i, possibleRules.Single());
+                        }
                     }
                 }
             }
 
             return ruleOrder;
+        }
+
+        public Ticket[] GetValidTickets(PuzzleData data)
+        {
+            return data.Tickets.Where(t => t.IsValid(data.Rules)).ToArray();
         }
     }
 }

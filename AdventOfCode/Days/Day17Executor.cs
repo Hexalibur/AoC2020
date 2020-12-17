@@ -2,14 +2,14 @@
 
 namespace AdventOfCode.Days
 {
-    class Day16Executor: DailyExecuter
+    class Day17Executor: DailyExecuter
 
     {
-        public Day16Executor(string input) : base(input, "Day16")
+        public Day17Executor(string input) : base(input, "Day17")
         {
         }
 
-        public Day16Executor() : base(DailyInputs.d16_list, "Day16")
+        public Day17Executor() : base(DailyInputs.d17_list, "Day17")
         {
         }
 
@@ -18,19 +18,20 @@ namespace AdventOfCode.Days
 
         public override object Step1()
         {
-            var instance = new Core2020.Day16();
+            var instance = new Core2020.Day17();
 
             var data = instance.PrepareData(CurrentInput);
 
-            return instance.GetSumOfInvalidNumbers(data);
+            return instance.Cycle(data, 6, false);
         }
 
         public override object Step2()
         {
-            var instance = new Core2020.Day16();
+            var instance = new Core2020.Day17();
+
             var data = instance.PrepareData(CurrentInput);
 
-            return instance.GetDepartureProduct(data);
+            return instance.Cycle(data, 6, true);
         }
     }
 }

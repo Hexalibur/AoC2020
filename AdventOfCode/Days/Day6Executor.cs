@@ -1,5 +1,4 @@
 ﻿using AdventOfCode.Days.Base;
-using System;
 
 namespace AdventOfCode.Days
 {
@@ -8,29 +7,24 @@ namespace AdventOfCode.Days
         public override object Step1()
         {
             var instance = new Core2020.Day6();
-            Console.WriteLine($"Day6.1 start : {DateTime.Now.ToLongTimeString()}");
+
             var data = instance.PrepareData(CurrentInput);
 
-            var result = instance.CountDistinctYesAnswer(data);
-            Console.WriteLine($"Day6.1 : {result}");
-            Console.WriteLine($"Day6.1 end : {DateTime.Now.ToLongTimeString()}");
-            return result;
+            return instance.CountDistinctYesAnswer(data);
         }
 
         public override object Step2()
         {
-            
             var instance = new Core2020.Day6();
-            Console.WriteLine($"Day6.2 start : {DateTime.Now.ToLongTimeString()}");
+
             var data = instance.PrepareData(CurrentInput);
 
-            var result = instance.CountCommonYesAnswer(data);
-            Console.WriteLine($"Day6.2 : {result}");
-            Console.WriteLine($"Day6.2 end : {DateTime.Now.ToLongTimeString()}");
-            Console.WriteLine();
-            return result;
+            return instance.CountCommonYesAnswer(data);
         }
-        public Day6Executor(string input) : base(input) {}
-        public Day6Executor() : base(DailyInputs.d6_list) {}
+        public Day6Executor(string input) : base(input, "Day6") {}
+        public Day6Executor() : base(DailyInputs.d6_list, "Day6") {}
+
+        public override bool IsSkip1 => false;
+        public override bool IsSkip2 => false;
     }
 }

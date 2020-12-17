@@ -1,42 +1,37 @@
 ﻿using AdventOfCode.Days.Base;
-using System;
 
 namespace AdventOfCode.Days
 {
     class Day15Executor: DailyExecuter
 
     {
-        public Day15Executor(string input) : base(input)
+
+        public Day15Executor(string input) : base(input, "Day15")
         {
         }
 
-        public Day15Executor() : base(DailyInputs.d15_list)
+        public Day15Executor() : base(DailyInputs.d15_list, "Day15")
         {
         }
+
+        public override bool IsSkip1 => false;
+        public override bool IsSkip2 => true;
 
         public override object Step1()
         {
             var instance = new Core2020.Day15();
-            Console.WriteLine($"Day15.1 start : {DateTime.Now.ToLongTimeString()}");
+
             var data = instance.PrepareData(CurrentInput);
 
-            var result = instance.GetSpokenNumber(data, 2020);
-            Console.WriteLine($"Day15.1 : {result}");
-            Console.WriteLine($"Day15.1 end : {DateTime.Now.ToLongTimeString()}");
-            return result;
+            return  instance.GetSpokenNumber(data, 2020);
         }
 
         public override object Step2()
         {
             var instance = new Core2020.Day15();
-            Console.WriteLine($"Day15.2 start : {DateTime.Now.ToLongTimeString()}");
             var data = instance.PrepareData(CurrentInput);
 
-            var result = instance.GetSpokenNumber(data, 30000000);
-            Console.WriteLine($"Day15.2 : {result}");
-            Console.WriteLine($"Day15.2 end : {DateTime.Now.ToLongTimeString()}");
-            Console.WriteLine();
-            return result;
+            return instance.GetSpokenNumber(data, 30000000);
         }
     }
 }
