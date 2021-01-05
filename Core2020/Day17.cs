@@ -58,61 +58,87 @@ namespace Core2020
             var currentActives = initialActives.Select(x => x).ToList();
             for (var r = 0; r < runs; r++)
             {
-                var minX = currentActives.Min(x => x.X) - 1;
-                var maxX = currentActives.Max(x => x.X) + 1;
-                
-                var minY = currentActives.Min(x => x.Y) - 1;
-                var maxY = currentActives.Max(x => x.Y) + 1;
-                
-                var minZ = currentActives.Min(x => x.Z) - 1;
-                var maxZ = currentActives.Max(x => x.Z) + 1;
-
-                var minW = useFourthDimension ? currentActives.Min(x => x.W) - 1 : 0;
-                var maxW = useFourthDimension ? currentActives.Max(x => x.W) + 1: 0;
-
-                var newActives= new List<Coordinate>();
-
-                for (var w = minW; w <= maxW; w++)
-                {
-                    for (var z = minZ; z <= maxZ; z++)
-                    {
-                        for (var x = minX; x <= maxX; x++)
-                        {
-                            for (var y = minY; y <= maxY; y++)
-                            {
-                                var coordinate = currentActives.SingleOrDefault(c => c.Z == z && c.X == x && c.Y == y && c.W == w);
-                                var nbActiveNeighbor = currentActives.Count(c => c.IsNeighborOf(x, y, z, w));
-
-                                if (coordinate == null)
-                                {
-                                    if (nbActiveNeighbor == 3) newActives.Add(new Coordinate(){
-                                        X = x,
-                                        Y = y,
-                                        Z = z,
-                                        W = w
-                                    });
-                                }
-                                else
-                                {
-                                    if (nbActiveNeighbor == 2 || nbActiveNeighbor == 3)
-                                    {
-                                        newActives.Add(new Coordinate(){
-                                            X = x,
-                                            Y = y,
-                                            Z = z,
-                                            W = w
-                                        });
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                currentActives = newActives.Select(x => x).ToList();
+                var newActives = Run(currentActives, useFourthDimension);
+                currentActives = newActives.Select(x=> x).ToList();
             }
 
             return currentActives.Count();
+        }
+
+        public List<Coordinate> Run(List<Coordinate> actualActives, bool useFourthDimension)
+        {
+            var minX = actualActives.Min(x => x.X) - 1;
+            var maxX = actualActives.Max(x => x.X) + 1;
+            
+            var minY = actualActives.Min(x => x.Y) - 1;
+            var maxY = actualActives.Max(x => x.Y) + 1;
+            
+            var minZ = actualActives.Min(x => x.Z) - 1;
+            var maxZ = actualActives.Max(x => x.Z) + 1;
+
+            var minW = useFourthDimension ? actualActives.Min(x => x.W) - 1 : 0;
+            var maxW = useFourthDimension ? actualActives.Max(x => x.W) + 1: 0;
+
+            var newActives= new List<Coordinate>();
+
+            for (var w = minW; w <= maxW; w++)
+            {
+                for (var z = minZ; z <= maxZ; z++)
+                {
+                    for (var x = minX; x <= maxX; x++)
+                    {
+                        for (var y = minY; y <= maxY; y++)
+                        {
+                            var coordinate = GetCoordinate(actualActives, w, z, x, y);
+                            
+                            if (coordinate != null) newActives.Add(coordinate);
+                        }
+                    }
+                }
+            }
+
+            return newActives;
+        }
+
+        private Coordinate GetCoordinate(List<Coordinate> actualActives, int w, int z, int x, int y)
+        {
+            var actualCoordinate = actualActives.SingleOrDefault(c => c.Z == z && c.X == x && c.Y == y && c.W == w);
+
+            var nbActiveNeighbor = actualActives.Count(c => c.IsNeighborOf(x, y, z, w));
+
+            if (actualCoordinate == null)
+            {
+                if (MustActivate(nbActiveNeighbor)) return new Coordinate(){
+                    X = x,
+                    Y = y,
+                    Z = z,
+                    W = w
+                };
+            }
+            else
+            {
+                if (MustKeepActivated(nbActiveNeighbor))
+                {
+                    return new Coordinate(){
+                        X = x,
+                        Y = y,
+                        Z = z,
+                        W = w
+                    };           
+                }
+            }
+
+            return null;
+        }
+
+        private bool MustActivate(int nbActiveNeighbor)
+        {
+            return nbActiveNeighbor == 3;
+        }
+
+        private bool MustKeepActivated(int nbActiveNeighbor)
+        {
+            return nbActiveNeighbor == 2 || nbActiveNeighbor == 3;
         }
     }
 }

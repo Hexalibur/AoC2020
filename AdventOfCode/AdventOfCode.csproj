@@ -43,25 +43,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DaylyInputs.cs" />
-    <Compile Include="Days\Day10Executor.cs" />
-    <Compile Include="Days\Day11Executor.cs" />
-    <Compile Include="Days\Day12Executor.cs" />
-    <Compile Include="Days\Day13Executor.cs" />
-    <Compile Include="Days\Day14Executor.cs" />
-    <Compile Include="Days\Day15Executor.cs" />
-    <Compile Include="Days\Day16Executor.cs" />
-    <Compile Include="Days\Day17Executor.cs" />
-    <Compile Include="Days\Day2Executor.cs" />
-    <Compile Include="Days\Day1Executor.cs" />
-    <Compile Include="Days\Day3Executor.cs" />
-    <Compile Include="Days\Day4Executor.cs" />
-    <Compile Include="Days\Day5Executor.cs" />
-    <Compile Include="Days\Day6Executor.cs" />
-    <Compile Include="Days\Day7Executor.cs" />
+    <Compile Include="Days\Y2015\DailyInputs.cs" />
+    <Compile Include="Days\Y2015\Day1Executor.cs" />
+    <Compile Include="Days\Y2015\Day2Executor.cs" />
+    <Compile Include="Days\Y2015\Day3Executor.cs" />
+    <Compile Include="Days\Y2015\Day4Executor.cs" />
+    <Compile Include="Days\Y2015\Day5Executor.cs" />
+    <Compile Include="Days\Y2015\Day6Executor.cs" />
+    <Compile Include="Days\Y2015\Day7Executor.cs" />
+    <Compile Include="Days\Y2020\Day18Executor.cs" />
+    <Compile Include="Days\Y2020\Day19Executor.cs" />
+    <Compile Include="Days\Y2020\Day20Executor.cs" />
+    <Compile Include="Days\Y2020\Day21Executor.cs" />
+    <Compile Include="Days\Y2020\Day22Executor.cs" />
+    <Compile Include="Days\Y2020\Day23Executor.cs" />
+    <Compile Include="Days\Y2020\Day24Executor.cs" />
+    <Compile Include="Days\Y2020\Day25Executor.cs" />
+    <Compile Include="Days\Y2020\DaylyInputs.cs" />
+    <Compile Include="Days\Y2020\Day10Executor.cs" />
+    <Compile Include="Days\Y2020\Day11Executor.cs" />
+    <Compile Include="Days\Y2020\Day12Executor.cs" />
+    <Compile Include="Days\Y2020\Day13Executor.cs" />
+    <Compile Include="Days\Y2020\Day14Executor.cs" />
+    <Compile Include="Days\Y2020\Day15Executor.cs" />
+    <Compile Include="Days\Y2020\Day16Executor.cs" />
+    <Compile Include="Days\Y2020\Day17Executor.cs" />
+    <Compile Include="Days\Y2020\Day2Executor.cs" />
+    <Compile Include="Days\Y2020\Day1Executor.cs" />
+    <Compile Include="Days\Y2020\Day3Executor.cs" />
+    <Compile Include="Days\Y2020\Day4Executor.cs" />
+    <Compile Include="Days\Y2020\Day5Executor.cs" />
+    <Compile Include="Days\Y2020\Day6Executor.cs" />
+    <Compile Include="Days\Y2020\Day7Executor.cs" />
     <Compile Include="Days\Base\DailyExecuter.cs" />
-    <Compile Include="Days\Day8Executor.cs" />
-    <Compile Include="Days\Day9Executor.cs" />
+    <Compile Include="Days\Y2020\Day8Executor.cs" />
+    <Compile Include="Days\Y2020\Day9Executor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -69,6 +85,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core2015\Core2015.csproj">
+      <Project>{d779f58b-3e61-4660-b3e3-2c0fbbcaae96}</Project>
+      <Name>Core2015</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core2020\Core2020.csproj">
       <Project>{e8b8d106-4c9f-48e6-a493-0b5249061353}</Project>
       <Name>Core2020</Name>

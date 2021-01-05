@@ -1,0 +1,6 @@
+C:\Users\lmddvx\source\repos\AdventOfCode\Core2015\bin\Debug\Core2015.dll
+C:\Users\lmddvx\source\repos\AdventOfCode\Core2015\bin\Debug\Core2015.pdb
+C:\Users\lmddvx\source\repos\AdventOfCode\Core2015\obj\Debug\Core2015.csprojAssemblyReference.cache
+C:\Users\lmddvx\source\repos\AdventOfCode\Core2015\obj\Debug\Core2015.csproj.CoreCompileInputs.cache
+C:\Users\lmddvx\source\repos\AdventOfCode\Core2015\obj\Debug\Core2015.dll
+C:\Users\lmddvx\source\repos\AdventOfCode\Core2015\obj\Debug\Core2015.pdb
